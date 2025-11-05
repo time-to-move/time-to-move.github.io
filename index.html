@@ -85,22 +85,13 @@
       </div>
     </section>
 
-    <!-- TL;DR -->
-    <section class="tldr-section">
-      <h2>TL;DR</h2>
-      <p class="abstract-text">
-      Time-to-Move (TTM) is a training-free method for adding precise motion control to existing video models. It uses a crude video (like "cut-and-drag" or depth warping) as a motion signal. The signal is used in an SDEdit inspired method adapted to the task using image conditioning and "dual-clock denoising." This technique strictly forces the specified motion while letting the rest adapt realistically. This setup also enables joint control over both motion and appearance.
-      </p>
-    </section>
-
     <!-- Abstract -->
     <section class="abstract-section">
-      <h2>Abstract</h2>
-      <p class="abstract-text">
-        Diffusion-based video generation can create realistic videos, yet existing image and text-based conditioning fails to offer precise motion control. Prior methods for motion control typically rely on displacement-based conditioning and require model-specific fine-tuning, which is computationally expensive and restrictive.
-        We introduce  <strong>Time-to-Move</strong> (TTM), a training-free, plug-and-play framework for motion- and appearance-controlled video generation with image-to-video (I2V) diffusion models. Our key insight is to use crude reference animations, obtained through user-friendly manipulations such as cut-and-drag or depth-based reprojection, as direct motion guidance, analogous to using coarse layout input in image editing. 
-        To integrate these signals, we adapt SDEdit to the video domain while anchoring the appearance with image conditioning. We further propose dual-clock denoising, a region-dependent strategy that enforces strong alignment in motion specified regions and grants flexibility elsewhere, balancing fidelity to user intent with natural dynamics. This lightweight modification of the sampling process incurs no additional training or runtime cost and is compatible with any backbone.
-        Extensive experiments on object and camera motion benchmarks show that TTM matches or exceeds existing training-based baselines in realism and motion control. Beyond this, TTM introduces a unique capability: precise appearance control through pixel-level conditioning, exceeding the limits of text-only prompting.
+    <h2>Abstract</h2>
+    <p class="abstract-text" style="line-height:1.28;margin:0;">
+      We introduce Time-to-Move (TTM), a <strong>training-free</strong>, plug-and-play framework that adds precise motion control to existing video diffusion models. Many prior methods require expensive, model-specific fine-tuning, but TTM avoids this. Our key insight is to use <strong>crude reference animations</strong>, such as "cut-and-drag" or depth-based reprojection, as coarse motion cues.
+      Motivated by SDEdit, we adapt its mechanism to the video domain, using <strong>image conditioning</strong> with image-to-video models to preserve appearance. In addition, we introduce <strong>"dual-clock denoising,"</strong> a novel region-dependent strategy. This technique strictly enforces alignment in motion-specified regions while allowing natural dynamics and flexibility elsewhere.
+      This training-free modification is compatible with any backbone model. Moreover, TTM enables joint control over both <strong>motion and appearance</strong>, and experiments show it matches or exceeds existing training-based baselines both in realism and motion fidelity.
       </p>
     </section>
 
@@ -109,36 +100,15 @@
       <h2>Method Overview</h2>
       <div class="method-figure">
         <img src="assets/method_figure_v9.png" alt="Method Overview" class="method-img">
-        <p class="figure-caption">
-          <strong>Figure 1:</strong> Overview of our Time-to-Move method. [Describe your method figure here: the overall pipeline, 
-          how the warped video is generated, how the dual-clock denoising works, etc.]
-        </p>
       </div>
-      <div class="method-description">
-        <!-- <p>
-          Our approach consists of three main components: (1) <strong>Motion Initialization</strong> - We create an initial warped video 
-          by either estimating depth for camera motion or dragging masked regions for object motion. (2) <strong>Dual-Clock Denoising</strong> - 
-          We introduce a novel denoising scheme that operates at two different temporal scales to better preserve motion structure. 
-          (3) <strong>Training-Free Guidance</strong> - We guide pre-trained video diffusion models without any fine-tuning or additional training.
-        </p> -->
-        <!-- <p>
-          Given an input image and a motion instruction, a mask marks the region under strong control. 
-          A motion signal is then generated automatically and, together with the image, conditions an image-to-video (I2V) diffusion model. 
-          During sampling, denoising starts at different noise levels—lower inside the mask to enforce the specified motion, and higher outside 
-          to allow natural deviations in the (typically static) background. Joint sampling then yields a realistic video that preserves input 
-          details while accurately following the motion control.
-        </p> -->
+      
+      <div class="method-description" style="line-height:1.28;margin:0;">
         <p>
-            Time-to-Move (TTM) takes an input image and a user-specified motion (dragging a masked region or depth-based reprojection), 
-            then automatically builds (i) a coarse warped reference video and (ii) a mask marking the strongly controlled region. 
-            We run an image-to-video diffusion model conditioned on the clean input image and initialized from a noisy version 
-            of the warped reference (SDEdit-style), anchoring appearance while injecting the intended motion. 
-            During sampling, we use dual-clock denoising—lower noise inside the mask to enforce the commanded motion, 
-            higher noise elsewhere so the background can evolve naturally. The result is a realistic video that preserves 
-            input details and faithfully follows the motion—no extra training or architectural changes.
+        Time-to-Move (TTM) takes an input image and a user-specified motion, then automatically builds <strong>(i)</strong> a coarse warped reference video and <strong>(ii)</strong> a mask marking the controlled region. We run an image-to-video diffusion model conditioned on the clean input image and initialized from a noisy version of the warped reference, anchoring appearance while injecting the intended motion. During sampling, we use dual-clock denoising: lower noise inside the mask to enforce the commanded motion, higher noise elsewhere to enable it to evolve naturally. The result is a realistic video that preserves input details and faithfully follows the motion without extra training or architectural changes.
         </p>
       </div>
-    </section>
+      
+      </section>
 
     <!-- Dual-Clock Denoising -->
     <section class="dual-clock-section">
@@ -150,14 +120,8 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        <p class="figure-caption">
-          <strong>Region-dependent denoising strategies.</strong> SDEdit (single clock): low noise levels overconstrain the video,
-           suppressing non-masked region dynamics; high noise levels improve realism but drift from the prescribed motion.
-           RePaint (foreground override): motion is enforced in the object, but uncontrolled regions exhibit artifacts such as duplication.
-           Dual-clock (ours): masked regions follow the intended motion with strong fidelity, while the background denoises more freely, yielding realistic dynamics without artifacts.
-        </p>
       </div>
-      <div class="dual-clock-description">
+      <div class="dual-clock-description" style="line-height:1.28;margin:0;">
         <!-- <p>
           The key innovation of our method is the dual-clock denoising mechanism. Traditional video diffusion models use a single 
           denoising schedule for all frames. In contrast, we introduce two separate "clocks" that denoise at different rates: 
@@ -165,23 +129,17 @@
           while generating high-quality visual details.
         </p> -->
         <p>
-          The key innovation of our method is the dual-clock denoising mechanism. Traditional video diffusion models use a single 
-          denoising schedule for all frames. In contrast, we introduce two separate "clocks" that denoise at different rates: 
-          a fast clock for content generation and a slow clock for motion preservation. This allows us to maintain temporal consistency 
-          while generating high-quality visual details.
-        </p>
+        We present a region-dependent denoising strategy. Previous methods have limitations: SDEdit either suppresses dynamics in unmasked regions (at high noise levels) or drifts from the prescribed motion (at low levels). RePaint, on the other hand, enforces motion without denoising, but this introduces artifacts. We propose a dual-clock method where masked regions follow the intended motion with strong fidelity, while the rest of the scene denoises more freely. This approach yields realistic dynamics without artifacts.        </p>
       </div>
     </section>
 
     <!-- User-Specified Object Control (plays 81 frames @ 24 fps) -->
     <section id="UserObjectControl" class="results-section">
-      <h2>User-Specified Object Control</h2>
-      <p class="section-description">
+      <h2>Object Motion Control</h2>
+      <p class="section-description" style="line-height:1.28;margin:0;">
         Examples of user-specified object control. The user selects a region(s) of interest in an image with a mask and
         specifies its trajectory. We then drag this masked region(s) across all frames to create a rough, warped version
-        of the intended object animation. Our method also allows for the insertion of new objects from outside the original image,
-        as well as altering the appearance of a specific object by changing its color or shape. We then use our training-free method
-        with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to generate a high-quality,
+        of the intended object animation. We then use TTM with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to generate a high-quality,
         lively video that accurately matches the user's intent.
       </p>
       <div class="video-grid-2col">
@@ -239,13 +197,13 @@
 
     <!-- User-Specified Camera Control (plays 81 frames @ 16 fps) -->
     <section id="UserCameraControl" class="results-section">
-      <h2>User-Specified Camera Control</h2>
-      <p class="section-description">
+      <h2>Camera Motion Control</h2>
+      <p class="section-description" style="line-height:1.28;margin:0;"></p>
         Examples of user-specified camera control from a single image. From any image, we estimate its depth and then,
         based on a user-defined camera motion, we generate a warped video of the original frame as seen from each new viewpoint.
         We fill any resulting holes with the nearest neighbor color, which creates a rough initial video of the desired camera movement.
-        We then use our training-free method with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
-        generate a high-quality, lively version that accurately matches the user's intent.
+        We then use TTM with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
+        generate a realistic video that accurately follows the specified camera motion.
       </p>
       <div class="video-grid-2col">
         <div class="video-item">
@@ -281,13 +239,13 @@
 
     <!-- User-Specified Camera Control (plays 81 frames @ 24 fps) -->
     <section id="UserObjectAppearanceControl" class="results-section">
-      <h2>User-Specified Object and Appearance Control</h2>
+      <h2>Motion and Appearance Control</h2>
       <p class="section-description">
-        Examples of user-specified object and appearance control from a single image. From any image, we estimate its depth and then,
-        based on a user-defined camera motion, we generate a warped video of the original frame as seen from each new viewpoint.
-        We fill any resulting holes with the nearest neighbor color, which creates a rough initial video of the desired camera movement.
-        We then use our training-free method with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
-        generate a high-quality, lively version that accurately matches the user's intent.
+        Examples of user-specified object and appearance control from a single image.
+        Our method also allows for the insertion of new objects from outside the original image, as well as altering the appearance of a specific object by changing its color or shape.
+        We generate a rough, warped version of the intended object animation along with the desired appearance changes.
+        We then use TTM with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
+        generate a the output video.
       </p>
       <div class="video-grid-2col">
         <div class="video-item">
@@ -329,7 +287,7 @@
     <!-- Qualitative Comparison - Object Control (plays 81 frames @ 24 fps)  -->
     <section class="comparison-section">
       <h2>Qualitative Comparison: Object Control</h2>
-      <p class="section-description">
+      <p class="section-description" style="line-height:1.28;margin:0;">
         Comparison of our method with state-of-the-art approaches on user-specified object control tasks. 
         All methods use the same base video model for fair comparison.
       </p>
@@ -365,7 +323,7 @@
     <!-- Qualitative Comparison - Camera Control (plays 81 frames @ 16 fps) -->
     <section class="comparison-section">
       <h2>Qualitative Comparison: Camera Control</h2>
-      <p class="section-description">
+      <p class="section-description" style="line-height:1.28;margin:0;">
         Comparison of our method with state-of-the-art approaches on user-specified camera control tasks.
       </p>
       <div class="comparison-grid">
