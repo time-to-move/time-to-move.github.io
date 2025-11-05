@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noarchive">
+  <title>Time-to-Move: Training-Free Motion Controlled Video Generation via Dual-Clock Denoising</title>
+    <link rel="stylesheet" href="style_new.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-container">
+    
+    <!-- Title Section -->
+    <header class="paper-header">
+      <h1 class="paper-title">Time-to-Move: Training-Free Motion Controlled Video Generation via Dual-Clock Denoising</h1>
+      
+      <!-- Authors -->
+      <div class="authors">
+        <span class="author"><a href="https://www.linkedin.com/in/assaf-singer/">Assaf Singer</a><sup>†, 1</sup></span>
+        <span class="author"><a href="https://rotsteinnoam.github.io/">Noam Rotstein</a><sup>†, 1</sup></span>
+        <span class="author"><a href="https://www.linkedin.com/in/amir-mann-a890bb276/">Amir Mann</a><sup>1</sup></span>
+        <span class="author"><a href="https://ron.cs.technion.ac.il/">Ron Kimmel</a><sup>1</sup></span>
+        <span class="author"><a href="https://orlitany.github.io/">Or Litany</a><sup>1, 2</sup></span>
+      </div>
+
+    <!-- Institutions -->
+    <div class="affiliations">
+      <span class="affiliation"><sup>1</sup>Technion - Israel Institute of Technology</span>
+      <span class="affiliation"><sup>2</sup>NVIDIA</span>        
+    </div>
+    <p class="equal-contrib" style="margin-top:6px;font-size:1rem;color:#555;">
+      <sup>†</sup> Equal contribution
+    </p>
+
+      <!-- Conference -->
+      <div class="conference">
+        Conference/Journal Name 2025
+      </div>
+      
+      <!-- Links -->
+      <div class="paper-links">
+        <a href="#" class="paper-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          Paper (arXiv)
+        </a>
+        <a href="https://github.com/RotsteinNoam/time-to-move" class="paper-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          Code
+        </a>
+        <a href="supplementary.html" class="paper-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+          </svg>
+          Supplementary
+        </a>
+        <a href="#" class="paper-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+          </svg>
+          YouTube
+        </a>
+      </div>
+    </header>
+
+    <!-- Teaser Video -->
+    <section class="teaser-section">
+      <h2>Teaser</h2>
+      <div class="teaser-video-container">
+        <video class="teaser-video" autoplay loop muted playsinline controls>
+          <source src="assets/teaser_placeholder.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="video-caption">Teaser video showcasing our method for training-free motion-controlled video generation.</p>
+      </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="abstract-section">
+      <h2>Abstract</h2>
+      <p class="abstract-text">
+        Diffusion-based video generation can create realistic videos, yet existing image and text-based conditioning fails to offer precise motion control. Prior methods for motion control typically rely on displacement-based conditioning and require model-specific fine-tuning, which is computationally expensive and restrictive.
+        We introduce  <strong>Time-to-Move</strong> (TTM), a training-free, plug-and-play framework for motion- and appearance-controlled video generation with image-to-video (I2V) diffusion models. Our key insight is to use crude reference animations, obtained through user-friendly manipulations such as cut-and-drag or depth-based reprojection, as direct motion guidance, analogous to using coarse layout input in image editing. 
+        To integrate these signals, we adapt SDEdit to the video domain while anchoring the appearance with image conditioning. We further propose dual-clock denoising, a region-dependent strategy that enforces strong alignment in motion specified regions and grants flexibility elsewhere, balancing fidelity to user intent with natural dynamics. This lightweight modification of the sampling process incurs no additional training or runtime cost and is compatible with any backbone.
+        Extensive experiments on object and camera motion benchmarks show that TTM matches or exceeds existing training-based baselines in realism and motion control. Beyond this, TTM introduces a unique capability: precise appearance control through pixel-level conditioning, exceeding the limits of text-only prompting.
+      </p>
+    </section>
+
+    <!-- Method Overview -->
+    <section class="method-section">
+      <h2>Method Overview</h2>
+      <div class="method-figure">
+        <img src="assets/method_figure_v9.png" alt="Method Overview" class="method-img">
+        <p class="figure-caption">
+          <strong>Figure 1:</strong> Overview of our Time-to-Move method. [Describe your method figure here: the overall pipeline, 
+          how the warped video is generated, how the dual-clock denoising works, etc.]
+        </p>
+      </div>
+      <div class="method-description">
+        <!-- <p>
+          Our approach consists of three main components: (1) <strong>Motion Initialization</strong> - We create an initial warped video 
+          by either estimating depth for camera motion or dragging masked regions for object motion. (2) <strong>Dual-Clock Denoising</strong> - 
+          We introduce a novel denoising scheme that operates at two different temporal scales to better preserve motion structure. 
+          (3) <strong>Training-Free Guidance</strong> - We guide pre-trained video diffusion models without any fine-tuning or additional training.
+        </p> -->
+        <!-- <p>
+          Given an input image and a motion instruction, a mask marks the region under strong control. 
+          A motion signal is then generated automatically and, together with the image, conditions an image-to-video (I2V) diffusion model. 
+          During sampling, denoising starts at different noise levels—lower inside the mask to enforce the specified motion, and higher outside 
+          to allow natural deviations in the (typically static) background. Joint sampling then yields a realistic video that preserves input 
+          details while accurately following the motion control.
+        </p> -->
+        <p>
+            Time-to-Move (TTM) takes an input image and a user-specified motion (dragging a masked region or depth-based reprojection), 
+            then automatically builds (i) a coarse warped reference video and (ii) a mask marking the strongly controlled region. 
+            We run an image-to-video diffusion model conditioned on the clean input image and initialized from a noisy version 
+            of the warped reference (SDEdit-style), anchoring appearance while injecting the intended motion. 
+            During sampling, we use dual-clock denoising—lower noise inside the mask to enforce the commanded motion, 
+            higher noise elsewhere so the background can evolve naturally. The result is a realistic video that preserves 
+            input details and faithfully follows the motion—no extra training or architectural changes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Dual-Clock Denoising -->
+    <section class="dual-clock-section">
+      <h2>Dual-Clock Denoising</h2>
+      <div class="dual-clock-figure">
+        <div class="dual-clock-video-container">
+          <video class="dual-clock-video" autoplay loop muted playsinline controls>
+            <source src="assets/dual_clock2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="figure-caption">
+          <strong>Region-dependent denoising strategies.</strong> SDEdit (single clock): low noise levels overconstrain the video,
+           suppressing non-masked region dynamics; high noise levels improve realism but drift from the prescribed motion.
+           RePaint (foreground override): motion is enforced in the object, but uncontrolled regions exhibit artifacts such as duplication.
+           Dual-clock (ours): masked regions follow the intended motion with strong fidelity, while the background denoises more freely, yielding realistic dynamics without artifacts.
+        </p>
+      </div>
+      <div class="dual-clock-description">
+        <!-- <p>
+          The key innovation of our method is the dual-clock denoising mechanism. Traditional video diffusion models use a single 
+          denoising schedule for all frames. In contrast, we introduce two separate "clocks" that denoise at different rates: 
+          a fast clock for content generation and a slow clock for motion preservation. This allows us to maintain temporal consistency 
+          while generating high-quality visual details.
+        </p> -->
+        <p>
+          The key innovation of our method is the dual-clock denoising mechanism. Traditional video diffusion models use a single 
+          denoising schedule for all frames. In contrast, we introduce two separate "clocks" that denoise at different rates: 
+          a fast clock for content generation and a slow clock for motion preservation. This allows us to maintain temporal consistency 
+          while generating high-quality visual details.
+        </p>
+      </div>
+    </section>
+
+    <!-- User-Specified Object Control (plays 81 frames @ 24 fps) -->
+    <section id="UserObjectControl" class="results-section">
+      <h2>User-Specified Object Control</h2>
+      <p class="section-description">
+        Examples of user-specified object control. The user selects a region(s) of interest in an image with a mask and
+        specifies its trajectory. We then drag this masked region(s) across all frames to create a rough, warped version
+        of the intended object animation. Our method also allows for the insertion of new objects from outside the original image,
+        as well as altering the appearance of a specific object by changing its color or shape. We then use our training-free method
+        with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to generate a high-quality,
+        lively video that accurately matches the user's intent.
+      </p>
+      <div class="video-grid-2col">
+        <div class="video-item">
+          <video src="UserObjectControl/monkeyjumpingonthebed_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectControl/jumping_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectControl/gardening_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/surfing_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/owl_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/girljuggling_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/timesquaresv5_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/Vines_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/cuttingcucumber_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/carhighway_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/Rhino_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectControl/Turtle_concat2.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- User-Specified Camera Control (plays 81 frames @ 16 fps) -->
+    <section id="UserCameraControl" class="results-section">
+      <h2>User-Specified Camera Control</h2>
+      <p class="section-description">
+        Examples of user-specified camera control from a single image. From any image, we estimate its depth and then,
+        based on a user-defined camera motion, we generate a warped video of the original frame as seen from each new viewpoint.
+        We fill any resulting holes with the nearest neighbor color, which creates a rough initial video of the desired camera movement.
+        We then use our training-free method with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
+        generate a high-quality, lively version that accurately matches the user's intent.
+      </p>
+      <div class="video-grid-2col">
+        <div class="video-item">
+          <video src="UserCameraControl/bridge1_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserCameraControl/concertstage_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserCameraControl/volcano_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserCameraControl/Bridge2_concat_3.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <!-- <div class="video-item">
+            <video src="UserCameraControl/concertcrowd_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div> -->
+        <div class="video-item">
+            <video src="UserCameraControl/riverup_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserCameraControl/volcanotitan_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- User-Specified Camera Control (plays 81 frames @ 24 fps) -->
+    <section id="UserObjectAppearanceControl" class="results-section">
+      <h2>User-Specified Object and Appearance Control</h2>
+      <p class="section-description">
+        Examples of user-specified object and appearance control from a single image. From any image, we estimate its depth and then,
+        based on a user-defined camera motion, we generate a warped video of the original frame as seen from each new viewpoint.
+        We fill any resulting holes with the nearest neighbor color, which creates a rough initial video of the desired camera movement.
+        We then use our training-free method with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
+        generate a high-quality, lively version that accurately matches the user's intent.
+      </p>
+      <div class="video-grid-2col">
+        <div class="video-item">
+            <video src="UserObjectAppearanceControl/TimeToMoveVideo_concat_4.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+          <video src="UserObjectAppearanceControl/cocktail2_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectAppearanceControl/puttingonahat_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectAppearanceControl/ChameleonColor_concat.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectAppearanceControl/Sunset_concat.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectAppearanceControl/concat_motion_left_fps=24.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectAppearanceControl/RaceCars_concat.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+        <div class="video-item">
+            <video src="UserObjectAppearanceControl/ChameleonFade_concat.mp4" autoplay loop muted playsinline controls></video>
+            <p class="video-label">Warped | Ours</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Qualitative Comparison - Object Control (plays 81 frames @ 24 fps)  -->
+    <section class="comparison-section">
+      <h2>Qualitative Comparison: Object Control</h2>
+      <p class="section-description">
+        Comparison of our method with state-of-the-art approaches on user-specified object control tasks. 
+        All methods use the same base video model for fair comparison.
+      </p>
+      <!-- Videos - Hamburger, Snooker, Find Other -->
+      <div class="comparison-grid">
+        <div class="comparison-item">
+          <video src="UserObjectControl_Comparison/Hamburger_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+        <div class="comparison-item">
+          <video src="UserObjectControl_Comparison/Snooker_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+        <div class="comparison-item">
+          <video src="UserObjectControl_Comparison/BillboardUnrolling_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+        <div class="comparison-item">
+          <video src="UserObjectControl_Comparison/CuttingCucumber_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+        <div class="comparison-item">
+          <video src="UserObjectControl_Comparison/Surfing_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+        <div class="comparison-item">
+          <video src="UserObjectControl_Comparison/CarHighway_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qualitative Comparison - Camera Control (plays 81 frames @ 16 fps) -->
+    <section class="comparison-section">
+      <h2>Qualitative Comparison: Camera Control</h2>
+      <p class="section-description">
+        Comparison of our method with state-of-the-art approaches on user-specified camera control tasks.
+      </p>
+      <div class="comparison-grid">
+        <div class="comparison-item">
+          <video src="UserCameraControl_Comparison/RiverOcean_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+        <div class="comparison-item">
+          <video src="UserCameraControl_Comparison/SpiderMan_concat.mp4" autoplay loop muted playsinline controls></video>
+          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BibTeX -->
+    <section class="bibtex-section">
+      <h2>Citation</h2>
+      <pre class="bibtex"><code>@article{yourname2025timetomove,
+  title={Time-to-Move: Training-Free Motion Controlled Video Generation via Dual-Clock Denoising},
+  author={Author Names},
+  journal={Conference/Journal Name},
+  year={2025}
+}</code></pre>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>© 2025 - Time-to-Move Project Page</p>
+      <p><a href="supplementary.html">View Supplementary Materials</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>

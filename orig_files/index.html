@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noarchive">
+  <title>Supplementary Video Materials</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Global styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    /* Header styles */
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.9);
+      transition: all 0.3s ease;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Main content container */
+    main {
+      max-width: 80%;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Section styles */
+    section {
+      margin-bottom: 4rem;
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+
+    .reference {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-left: 4px solid #667eea;
+      border-radius: 5px;
+    }
+
+    /* Hand-crafted section - 2 samples per row */
+    .hc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .hc-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hc-pair h3 {
+      font-size: 1.3rem;
+      color: #34495e;
+      margin-bottom: 0.5rem;
+    }
+
+    .hc-pair .vid {
+      width: 100%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .hc-pair .vid video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hc-pair figcaption {
+      text-align: center;
+      padding: 0.5rem;
+      background: #34495e;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* DL3DV and MC-Bench sections - full width videos */
+    .dl-row, .mc-row {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border: 1px solid #e9ecef;
+    }
+
+    .dl-row h3, .mc-row h3 {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .dl-row .vid, .mc-row .vid {
+      width: 100%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .dl-row .vid video, .mc-row .vid video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .dl-row figcaption, .mc-row figcaption {
+      text-align: center;
+      padding: 0.5rem;
+      background: #34495e;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      main {
+        max-width: 95%;
+        padding: 1rem 0;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .hc-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .dl-row, .mc-row {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      .hc-pair h3, .dl-row h3, .mc-row h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Time-to-Move: Training-Free Motion Controlled Video Generation via Dual-Clock Denoising</h1>
+    <nav>
+      <a href="#UserCameraControl">User-Specified Camera Control</a>
+      <a href="#UserObjectControl"> User-Specified Object Control</a>
+      <a href="#dl3dv">DL3DV camera control demonstrations</a>
+      <a href="#mc-bench">MC-Bench samples</a>
+    </nav>
+  </header>
+  <main>
+<section id="UserCameraControl">
+<h2>User-Specified Camera Control</h2>
+<p class="reference">
+  Examples of user-specified camera control from a single image. From any image, we estimate its depth and then,
+  based on a user-defined camera motion, we generate a warped video of the original frame as seen from each new viewpoint.
+  We fill any resulting holes with the nearest neighbor color, which creates a rough initial video of the desired camera movement.
+  We then use our training-free method with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
+  generate a high-quality, lively version that accurately matches the user's intent.
+</p>
+<div class="hc-grid">
+<div class="hc-pair">
+  <figure class="vid">
+    <video src="UserCameraControl/bridge1_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+  <figure class="vid">
+    <video src="UserCameraControl/concertcrowd_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+</div>
+
+<div class="hc-pair">
+  <figure class="vid">
+    <video src="UserCameraControl/concertstage_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+  <figure class="vid">
+    <video src="UserCameraControl/riverocean_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+</div>
+
+<div class="hc-pair">
+  <figure class="vid">
+    <video src="UserCameraControl/spiderman_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+  <figure class="vid">
+    <video src="UserCameraControl/volcano_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+</div>
+
+<div class="hc-pair">
+  <figure class="vid">
+    <video src="UserCameraControl/volcanotitan_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+  <figure class="vid">
+    <video src="UserCameraControl/riverup_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption>Warped | Ours</figcaption>
+  </figure>
+</div>
+</div></section>
+
+<section id="UserObjectControl">
+<h2>User-Specified Object Control</h2>
+  <p class="reference">
+    Examples of user-specified object control. The user selects a region(s) of interest in an image with a mask and
+    specifies its trajectory. We then drag this masked region(s) across all frames to create a rough, warped version
+    of the intended object animation. Our method also allows for the insertion of new objects from outside the original image,
+    as well as altering the appearance of a specific object by changing its color or shape. We then use our training-free method
+    with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to generate an high-quality,
+    lively video that accurately matches the user's intent.
+  </p>
+  <div class="hc-grid">
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/monkeyjumpingonthebed_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/carhighway_concatenated_fixed2.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/coctailmixing_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/cuttingcucumber_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/gardening_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/hamburger_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/iclrclouds_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/jumping_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/puttingonahat_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/billboardunrolling_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/snooker_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/surfing_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/timesquaresv5_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/cocktail2_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+    <div class="hc-pair">
+      <figure class="vid">
+        <video src="UserObjectControl/girljuggling_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+      <figure class="vid">
+        <video src="UserObjectControl/owl_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+        <figcaption>Warped | Ours</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="dl3dv">
+<h2>Examples from the <a href="https://dl3dv-10k.github.io/DL3DV-10K/">DL3DV</a> dataset</h2>
+<p class="reference">
+  Qualitative examples from the DL3DV dataset, processed using our methodology with
+  <a href="https://github.com/zai-org/CogVideo">CogVideoX</a> and compared against
+  <a href="https://github.com/Eyeline-Labs/Go-with-the-Flow">GWTF</a> trained version of the same model.
+  For more details, please refer to the paper.
+</p>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/a4404ed52cfed68b49cd32d86a0b91dc63724f17c18d0ab38a1543abac6e4c03/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/a8d33e1e25c81ac072bd1d810738bbff5dab494bb3c8a45010dc7e537e9354e7/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/a97233a9ffef37dc2c1a3b577253b338dc100e87688fcc337809940c09d8772c/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/ab3e460b25b47631a0565a3bb675f758737f50bad56cd23bba7c7813915998b8/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/ac1adc1b8c8be9dac7a7182db71cbd11209d650717f7d261aa752fee0ea5cafa/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/b532339656faffbc992bdd0932a6e8c5169fd6cff36804063b09eb67cb189d1d/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/bba3f4b86b09685b50d83f0453fe11eadfa8d2c6d7066546d6b88dadfaa5851e/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/d3caed662503d3d54680856eab43da71e46860a45f1b40586bfe5298cf5a3540/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/d7cca331717e74d737b6b8da77f012aa7171bacb24c4fb971a2342bcafed5fec/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+<div class="dl-row">
+  <figure class="vid">
+    <video src="DL3DV/dbf60c899f576d5ea4cb8c94d1c1dbcaab11ba35a18e7b045233916fdd8fa890/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+    <figcaption> Warped | Ours | GWTF | Ground Truth</figcaption>
+  </figure>
+</div>
+</section>
+
+<section id="mc-bench">
+<h2>Examples from the <a href="https://github.com/HiDream-ai/MotionPro"></a>MC-Bench</a> dataset</h2>
+<p class="reference">
+  Qualitative examples from the MC-Bench dataset, processed using our methodology with
+  <a href="https://stability.ai/stable-video">SVD</a> and compared against
+  <a href="https://github.com/showlab/DragAnything">DragAnything</a>,
+  <a href="https://github.com/Kmcode1/SG-I2V">SGI2V</a>,
+  and <a href="https://zhw-zhang.github.io/MotionPro-page/">MotionPro</a>,
+  all of which are based on the same video model.
+  For more details, please refer to the paper.
+</p>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_08_1647_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_08_1653_20_02/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_08_1654_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_08_1655_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_08_1705_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_08_1708_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_08_1711_20_02/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_09_0126_20_05/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_09_0129_20_03/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_09_0130_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_09_0134_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+<div class="mc-row">
+    <figure class="vid">
+      <video src="MC-Bench/ZZW_2024_07_09_0137_20_01/concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
+      <figcaption>Warped | Ours (SVD) | Drag Anything | SGI2V | MotionPro</figcaption>
+    </figure>
+    
+</div>
+</section>
+  </main>
+</body>
+</html>
