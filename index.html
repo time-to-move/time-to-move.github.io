@@ -250,13 +250,11 @@
     <!-- User-Specified Camera Control (plays 81 frames @ 24 fps) -->
     <section id="UserObjectAppearanceControl" class="results-section">
       <h2>Motion and Appearance Control</h2>
-      <p class="section-description">
-        Examples of user-specified object and appearance control from a single image.
-        Our method also allows for the insertion of new objects from outside the original image, as well as altering the appearance of a specific object by changing its color or shape.
-        We generate a rough, warped version of the intended object animation along with the desired appearance changes.
-        We then use TTM with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
-        generate a the output video.
-      </p>
+    <p class="section-description" style="line-height:1.28;margin:0;">
+      Examples of user-specified object and appearance control. 
+      Our method enables both the insertion of new objects from outside the original image and the modification of an existing object’s appearance, such as changing its color or shape. 
+      Accordingly, a coarse, warped version of the intended object animation—including the desired appearance changes—is first generated and then fed into a <strong>TTM</strong>-based model that synthesizes the output video.
+    </p>
       <div class="video-grid-2col">
         <div class="video-item">
             <video src="UserObjectAppearanceControl/TimeToMoveVideo_concat_4.mp4" autoplay loop muted playsinline controls></video>
