@@ -329,11 +329,8 @@ section h2 {
 .full-width-video-grid {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
-
-.full-width-video-item {
+  gap: 8px;
+  margin-top: 8px;
   background: var(--bg-light);
   border-radius: 10px;
   overflow: hidden;
