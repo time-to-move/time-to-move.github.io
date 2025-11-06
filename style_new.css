@@ -288,12 +288,13 @@ section h2 {
 }
 
 /* Video Grids */
-.video-grid-2col {
+.video-grid-2col{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px; /* row/column gaps */
+  align-items: start;
 }
+
 
 .video-item {
   background: var(--bg-light);
@@ -355,7 +356,8 @@ section h2 {
 .comparison-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  row-gap: 5px;        /* was 2rem via gap */
+  column-gap: 18px;    /* keep horizontal spacing */
   margin-top: 2rem;
 }
 
@@ -542,5 +544,85 @@ section h2 {
   section {
     box-shadow: none;
     page-break-inside: avoid;
+  }
+}
+
+.video-grid-2col{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 18px;
+  align-items: start;
+}
+
+/* Header bar with custom spacing pattern */
+.video-col-headerbar{
+  grid-column: 1 / -1;     /* span both columns */
+  background: #34495e;     /* keep original box color */
+  color: #ffffff;             /* black text */
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;     /* keep on one line */
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+/* Header cell (one per column) */
+.video-col-headercell{
+  background: #34495e;
+  color: #ffffff;                 /* black text */
+  padding: 10px 12px;          /* increase/decrease to change height */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;         /* keep on one line */
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.video-col-headercell .spacer{ flex: 1 1 0; }
+.video-col-headercell .label { flex: 0 0 auto; }
+
+
+/* Header cell (one per column) */
+.video-col-headercell-small{
+  background: #34495e;
+  color: #ffffff;                 /* black text */
+  padding: 10px 12px;          /* increase/decrease to change height */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;         /* keep on one line */
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.video-col-headercell-small .spacer{ flex: 1 1 0; }
+.video-col-headercel-small .label { flex: 0 0 auto; }
+
+.video-col-headerbar .spacer{ flex: 1 1 0; }  /* each 'space' */
+.video-col-headerbar .label{ flex: 0 0 auto; }/* the words */
+
+/* Hide old per-item labels if they exist */
+.video-item .video-label{ display:none; }
+
+
+/* Optional: nicer mobile fallback — when it collapses to 1 column,
+   hide the global headers and show a small inline label per video. */
+@media (max-width: 800px){
+  .video-grid-2col{ grid-template-columns:1fr; }
+  .video-col-header{ display:none; }
+  .video-item::before{
+    content:attr(data-col);
+    display:block;
+    font-weight:600;
+    font-size:0.9rem;
+    color:#fff;
+    opacity:0.85;
+    margin-bottom:6px;
   }
 }

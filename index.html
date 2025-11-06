@@ -6,7 +6,6 @@
   <meta name="robots" content="noarchive">
   <title>Time-to-Move: Training-Free Motion Controlled Video Generation via Dual-Clock Denoising</title>
     <link rel="stylesheet" href="style_new.css">
-    <link rel="stylesheet" href="style_new.css">
 <style>.authors, .authors a, .authors sup { color:#fff; }</style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,48 +151,58 @@
       <p class="section-description" style="line-height:1.28;margin:0;">
         Examples of user-specified object control. The user selects one or more regions of interest in an image using a mask and defines their trajectories. 
         The masked regions are then dragged across all frames to produce a coarse, warped version of the intended object animation. 
-        Finally, <strong>TTM</strong>, integrated with the <strong>Wan&nbsp;2.2</strong> video model, generates a high-quality, dynamic video that accurately reflects the user’s intent.
+        Finally, <strong>TTM</strong>, integrated with the Wan&nbsp;2.2 video model, generates a high-quality, dynamic video that accurately reflects the user’s intent.
       </p>
+      <br>
       <div class="video-grid-2col">
+        <!-- Header row: two header cells, one per column -->
+        <div class="video-col-headercell">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours</span>
+          <span class="spacer" aria-hidden="true"></span>
+        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
+        <div class="video-col-headercell">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
         <div class="video-item">
           <video src="UserObjectControl/monkeyjumpingonthebed_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
             <video src="UserObjectControl/jumping_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
             <video src="UserObjectControl/gardening_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/surfing_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/owl_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/girljuggling_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/timesquaresv5_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/Vines_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/cuttingcucumber_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/carhighway_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
         <div class="video-item">
           <video src="UserObjectControl/Rhino_concat.mp4" autoplay loop muted playsinline controls></video>
@@ -201,7 +210,6 @@
         </div>
         <div class="video-item">
           <video src="UserObjectControl/Turtle_concat2.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
         </div>
       </div>
     </section>
@@ -215,7 +223,26 @@
         Any resulting holes are filled using nearest-neighbor colors, producing a coarse initial video that approximates the desired camera motion. 
         Finally, <strong>TTM</strong> synthesizes a realistic video that accurately follows the specified camera path.
       </p>
+      <br>
       <div class="video-grid-2col">
+                <div class="video-col-headercell">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours</span>
+          <span class="spacer" aria-hidden="true"></span>
+        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
+        <div class="video-col-headercell">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
         <div class="video-item">
           <video src="UserCameraControl/bridge1_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
           <p class="video-label">Warped | Ours</p>
@@ -255,7 +282,26 @@
       Our method enables both the insertion of new objects from outside the original image and the modification of an existing object’s appearance, such as changing its color or shape. 
       Accordingly, a coarse, warped version of the intended object animation—including the desired appearance changes—is first generated and then fed into a <strong>TTM</strong>-based model that synthesizes the output video.
     </p>
+    <br>
       <div class="video-grid-2col">
+        <div class="video-col-headercell">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours</span>
+          <span class="spacer" aria-hidden="true"></span>
+        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
+        <div class="video-col-headercell">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
         <div class="video-item">
             <video src="UserObjectAppearanceControl/TimeToMoveVideo_concat_4.mp4" autoplay loop muted playsinline controls></video>
             <p class="video-label">Warped | Ours</p>
@@ -301,29 +347,47 @@
       </p>
       <!-- Videos - Hamburger, Snooker, Find Other -->
       <div class="comparison-grid">
+        <div class="video-col-headercell-small">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (Wan2.2)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (CogVideoX)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">GWTF</span>
+          <span class="spacer" aria-hidden="true"></span>
+        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
+        <div class="video-col-headercell-small">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (Wan2.2)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (CogVideoX)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">GWTF</span>
+          <span class="spacer" aria-hidden="true"></span>
+        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
         <div class="comparison-item">
           <video src="UserObjectControl_Comparison/Hamburger_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
         <div class="comparison-item">
           <video src="UserObjectControl_Comparison/Snooker_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
         <div class="comparison-item">
           <video src="UserObjectControl_Comparison/BillboardUnrolling_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
         <div class="comparison-item">
           <video src="UserObjectControl_Comparison/CuttingCucumber_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
         <div class="comparison-item">
           <video src="UserObjectControl_Comparison/Surfing_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
         <div class="comparison-item">
           <video src="UserObjectControl_Comparison/CarHighway_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
       </div>
     </section>
@@ -334,14 +398,37 @@
       <p class="section-description" style="line-height:1.28;margin:0;">
         Comparison of our method with state-of-the-art approaches on user-specified camera control tasks.
       </p>
+
       <div class="comparison-grid">
+        <div class="video-col-headercell-small">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (Wan2.2)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (CogVideoX)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">GWTF</span>
+          <span class="spacer" aria-hidden="true"></span>
+        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
+        <div class="video-col-headercell-small">
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Warped</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (Wan2.2)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">Ours (CogVideoX)</span>
+          <span class="spacer" aria-hidden="true"></span>
+          <span class="label">GWTF</span>
+          <span class="spacer" aria-hidden="true"></span>
+        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
+        </div>
         <div class="comparison-item">
           <video src="UserCameraControl_Comparison/RiverOcean_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
         <div class="comparison-item">
           <video src="UserCameraControl_Comparison/SpiderMan_concat.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours (Wan 2.2) | Ours (CogVideoX) | GWTF</p>
         </div>
       </div>
     </section>
