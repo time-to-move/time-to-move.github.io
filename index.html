@@ -141,7 +141,8 @@
         We present a region-dependent denoising strategy.
         Previous methods have limitations: SDEdit either suppresses dynamics in unmasked regions (at high noise levels) or drifts from the prescribed motion (at low levels). RePaint, on the other hand, enforces motion without denoising, but this introduces artifacts.
         We propose a dual-clock method where masked regions follow the intended motion with strong fidelity, while the rest of the scene denoises more freely.
-        This flexible approach yields realistic dynamics without artifacts.        </p>
+        This flexible approach yields realistic dynamics without artifacts.
+      </p>
       </div>
     </section>
 
@@ -149,10 +150,9 @@
     <section id="UserObjectControl" class="results-section">
       <h2>Object Motion Control</h2>
       <p class="section-description" style="line-height:1.28;margin:0;">
-        Examples of user-specified object control. The user selects a region(s) of interest in an image with a mask and
-        specifies its trajectory. We then drag this masked region(s) across all frames to create a rough, warped version
-        of the intended object animation. We then use TTM with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to generate a high-quality,
-        lively video that accurately matches the user's intent.
+        Examples of user-specified object control. The user selects one or more regions of interest in an image using a mask and defines their trajectories. 
+        The masked regions are then dragged across all frames to produce a coarse, warped version of the intended object animation. 
+        Finally, <strong>TTM</strong>, integrated with the <strong>Wan&nbsp;2.2</strong> video model, generates a high-quality, dynamic video that accurately reflects the user’s intent.
       </p>
       <div class="video-grid-2col">
         <div class="video-item">
