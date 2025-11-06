@@ -110,7 +110,10 @@
       
       <div class="method-description" style="line-height:1.28;margin:0;">
         <p>
-        Time-to-Move (TTM) takes an input image and a user-specified motion, then automatically builds <strong>(i)</strong> a coarse warped reference video and <strong>(ii)</strong> a mask marking the controlled region. We run an image-to-video diffusion model conditioned on the clean input image and initialized from a noisy version of the warped reference, anchoring appearance while injecting the intended motion. During sampling, we use dual-clock denoising: lower noise inside the mask to enforce the commanded motion, higher noise elsewhere to enable it to evolve naturally. The result is a realistic video that preserves input details and faithfully follows the motion without extra training or architectural changes.
+        Time-to-Move (TTM) takes an input image and a user-specified motion, then automatically builds <strong>(i)</strong> a coarse warped reference video and <strong>(ii)</strong> a mask marking the controlled region.
+        The image-to-video diffusion model is conditioned on the clean input image and initialized from a noisy version of the warped reference, anchoring appearance while injecting the intended motion.
+        During sampling, dual-clock denoising is applied: lower noise inside the mask to enforce the commanded motion, higher noise elsewhere to enable it to evolve naturally.
+        The result is a realistic video that preserves input details and faithfully follows the motion without extra training or architectural changes.
         </p>
       </div>
       
