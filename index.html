@@ -210,12 +210,10 @@
     <!-- User-Specified Camera Control (plays 81 frames @ 16 fps) -->
     <section id="UserCameraControl" class="results-section">
       <h2>Camera Motion Control</h2>
-      <p class="section-description" style="line-height:1.28;margin:0;"></p>
-        Examples of user-specified camera control from a single image. From any image, we estimate its depth and then,
-        based on a user-defined camera motion, we generate a warped video of the original frame as seen from each new viewpoint.
-        We fill any resulting holes with the nearest neighbor color, which creates a rough initial video of the desired camera movement.
-        We then use TTM with <a href="https://github.com/Wan-Video/Wan2.2">Wan 2.2</a> video model to
-        generate a realistic video that accurately follows the specified camera motion.
+      <p class="section-description" style="line-height:1.28;margin:0;">
+        Examples of user-specified camera control from a single image. From any input image, we first estimate its depth and, given a user-defined camera trajectory, generate a warped video of the original frame as viewed from each new viewpoint. 
+        Any resulting holes are filled using nearest-neighbor colors, producing a coarse initial video that approximates the desired camera motion. 
+        Finally, <strong>TTM</strong> synthesizes a realistic video that accurately follows the specified camera path.
       </p>
       <div class="video-grid-2col">
         <div class="video-item">
