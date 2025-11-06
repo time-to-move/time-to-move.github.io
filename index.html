@@ -89,10 +89,16 @@
     <section class="abstract-section">
     <h2>Abstract</h2>
     <p class="abstract-text" style="line-height:1.28;margin:0;">
-      We introduce Time-to-Move (TTM), a <strong>training-free</strong>, plug-and-play framework that adds precise motion control to existing video diffusion models. Many prior methods require expensive, model-specific fine-tuning, but TTM avoids this. Our key insight is to use <strong>crude reference animations</strong>, such as "cut-and-drag" or depth-based reprojection, as coarse motion cues.
-      Motivated by SDEdit, we adapt its mechanism to the video domain, using <strong>image conditioning</strong> with image-to-video models to preserve appearance. In addition, we introduce <strong>"dual-clock denoising,"</strong> a novel region-dependent strategy. This technique strictly enforces alignment in motion-specified regions while allowing natural dynamics and flexibility elsewhere.
-      This training-free modification is compatible with any backbone model. Moreover, TTM enables joint control over both <strong>motion and appearance</strong>, and experiments show it matches or exceeds existing training-based baselines both in realism and motion fidelity.
-      </p>
+      We introduce <strong>Time-to-Move (TTM)</strong>, a <strong>training-free</strong>, plug-and-play framework that adds precise motion control to existing video diffusion models.
+      While many prior methods require costly, model-specific fine-tuning, TTM avoids this.
+      Our key insight is to use <strong>crude reference animations</strong>—such as “cut-and-drag” or depth-based reprojection—as coarse motion cues.
+      Inspired by SDEdit, we adapt its mechanism to the video domain. 
+      First, we use <strong>image conditioning</strong> with image-to-video models to preserve appearance, and second, we introduce <strong>dual-clock denoising</strong>, a novel region-dependent strategy.
+      This technique enforces stronger alignment in motion-specified regions while allowing more natural dynamics and flexibility elsewhere.
+      The approach is compatible with any backbone model.
+      Moreover, compared to previous motion control methods, TTM enables joint control over both <strong>motion and appearance</strong>.
+      Experiments demonstrate that it achieves comparable or superior performance to training-based baselines in both realism and motion fidelity.
+    </p>
     </section>
 
     <!-- Method Overview -->
