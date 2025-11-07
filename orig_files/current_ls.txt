@@ -220,10 +220,6 @@
 ./UserObjectControl/hamburger_concatenated_fixed.mp4
 ./UserObjectControl/Hamburger_ours_wan.mp4
 ./UserObjectControl/Hamburger_video.mp4
-./UserObjectControl/iclrclouds_concatenated.mp4
-./UserObjectControl/iclrclouds_concatenated_fixed.mp4
-./UserObjectControl/ICLRClouds_our_i2v_output_sdedit2_blend4_seed0.mp4
-./UserObjectControl/ICLRClouds_video.mp4
 ./UserObjectControl/jumping_concatenated.mp4
 ./UserObjectControl/jumping_concatenated_fixed.mp4
 ./UserObjectControl/Jumping_our_i2v_output_sdedit2_blend5_seed0.mp4

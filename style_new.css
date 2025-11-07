@@ -177,6 +177,7 @@ section {
   background: white;
   border-radius: 15px;
   box-shadow: var(--shadow);
+  margin-bottom: 2.5rem;
 }
 
 .supp-section {
@@ -202,18 +203,20 @@ section h2 {
 /* Teaser Section */
 .teaser-section {
   text-align: center;
+  padding: 1rem 1rem;
 }
 
 .teaser-video-container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
+
 }
 
 .teaser-video {
   width: 100%;
   border-radius: 10px;
-  box-shadow: var(--shadow);
-  margin-bottom: 1rem;
+  /* box-shadow: var(--shadow); */
+  margin-bottom: 0.5rem;
 }
 
 .video-caption {
@@ -623,3 +626,5 @@ section h2 {
     margin-bottom:6px;
   }
 }
+
+.paper-header + .teaser-section { margin-top: -2em; }
