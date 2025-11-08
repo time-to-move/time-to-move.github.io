@@ -77,7 +77,7 @@
       <!-- <h2>Teaser</h2> -->
       <div class="teaser-video-container">
         <video class="teaser-video" autoplay loop muted playsinline controls>
-          <source src="assets/teaser_video_5_v13_trimmed.mp4" type="video/mp4">
+          <source src="assets/teaser_video_4_v13_trimmed.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <!-- <p class="video-caption">Teaser video showcasing our method for training-free motion-controlled video generation.</p> -->
@@ -92,8 +92,9 @@
       While many prior methods require costly, model-specific fine-tuning, TTM avoids this.
       Our key insight is to use <strong>crude reference animations</strong>—such as “cut-and-drag” or depth-based reprojection—as coarse motion cues.
       Inspired by SDEdit, we adapt its mechanism to the video domain. 
-      First, we use <strong>image conditioning</strong> with image-to-video models to preserve appearance, and second, we introduce <strong>dual-clock denoising</strong>, a novel region-dependent strategy.
-      This technique enforces stronger alignment in motion-specified regions while allowing more natural dynamics and flexibility elsewhere.
+      
+      We preserve appearance with image conditioning and introduce <strong>dual-clock denoising</strong>, a novel region-dependent strategy that enforces strong alignment 
+      in motion-specified regions while allowing flexibility elsewhere, balancing fidelity to user intent with natural dynamics.
       The approach is compatible with any backbone model.
       Moreover, compared to previous motion control methods, TTM enables joint control over both <strong>motion and appearance</strong>.
       Experiments demonstrate that it achieves comparable or superior performance to training-based baselines in both realism and motion fidelity.
@@ -138,7 +139,8 @@
         </p> -->
         <p>
         We present a region-dependent denoising strategy.
-        Previous methods have limitations: SDEdit either suppresses dynamics in unmasked regions (at high noise levels) or drifts from the prescribed motion (at low levels). RePaint, on the other hand, enforces motion without denoising, but this introduces artifacts.
+        Previous methods have limitations: SDEdit either suppresses dynamics in unmasked regions (at low noise levels) or drifts from the prescribed motion (at high levels). 
+        RePaint, on the other hand, enforces motion by overriding the foreground, but often introduces artifacts in uncontrolled regions.
         We propose a dual-clock method where masked regions follow the intended motion with strong fidelity, while the rest of the scene denoises more freely.
         This flexible approach yields realistic dynamics without artifacts.
       </p>
