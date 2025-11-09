@@ -74,13 +74,11 @@
 
     <!-- Teaser Video -->
     <section class="teaser-section">
-      <!-- <h2>Teaser</h2> -->
       <div class="teaser-video-container">
         <video class="teaser-video" autoplay loop muted playsinline controls>
-          <source src="assets/teaser_video_5_v13_trimmed.mp4" type="video/mp4">
+          <source src="assets/teaser_video_5_v13_720p_trimmed_lightweight.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <!-- <p class="video-caption">Teaser video showcasing our method for training-free motion-controlled video generation.</p> -->
       </div>
     </section>
 
@@ -89,13 +87,12 @@
     <h2>Abstract</h2>
     <p class="abstract-text" style="line-height:1.28;margin:0;">
       We introduce <strong>Time-to-Move (TTM)</strong>, a <strong>training-free</strong>, plug-and-play framework that adds precise motion control to existing video diffusion models.
-      While many prior methods require costly, model-specific fine-tuning, TTM avoids this.
+      While many prior methods require costly, model-specific fine-tuning, TTM requires no additional training or runtime cost and is compatible with any backbone.
       Our key insight is to use <strong>crude reference animations</strong>—such as “cut-and-drag” or depth-based reprojection—as coarse motion cues.
       Inspired by SDEdit, we adapt its mechanism to the video domain. 
       
       We preserve appearance with image conditioning and introduce <strong>dual-clock denoising</strong>, a novel region-dependent strategy that enforces strong alignment 
       in motion-specified regions while allowing flexibility elsewhere, balancing fidelity to user intent with natural dynamics.
-      The approach is compatible with any backbone model.
       Moreover, compared to previous motion control methods, TTM enables joint control over both <strong>motion and appearance</strong>.
       Experiments demonstrate that it achieves comparable or superior performance to training-based baselines in both realism and motion fidelity.
     </p>
@@ -131,16 +128,10 @@
         </div>
       </div>
       <div class="dual-clock-description" style="line-height:1.28;margin:0;">
-        <!-- <p>
-          The key innovation of our method is the dual-clock denoising mechanism. Traditional video diffusion models use a single 
-          denoising schedule for all frames. In contrast, we introduce two separate "clocks" that denoise at different rates: 
-          a fast clock for content generation and a slow clock for motion preservation. This allows us to maintain temporal consistency 
-          while generating high-quality visual details.
-        </p> -->
         <p>
         We present a region-dependent denoising strategy.
         Previous methods have limitations: SDEdit either suppresses dynamics in unmasked regions (at low noise levels) or drifts from the prescribed motion (at high levels). 
-        RePaint, on the other hand, enforces motion by overriding the foreground, but often introduces artifacts in uncontrolled regions.
+        RePaint, on the other hand, enforces motion by overriding the foreground, but often introduces artifacts in uncontrolled regions and rigid motion in controlled regions.
         We propose a dual-clock method where masked regions follow the intended motion with strong fidelity, while the rest of the scene denoises more freely.
         This flexible approach yields realistic dynamics without artifacts.
       </p>
@@ -176,9 +167,9 @@
           <span class="spacer" aria-hidden="true"></span>
           <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
         </div>
-        <div class="video-item">
+        <!-- <div class="video-item">
           <video src="UserObjectControl/monkeyjumpingonthebed_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-        </div>
+        </div> -->
         <div class="video-item">
             <video src="UserObjectControl/jumping_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
         </div>
@@ -201,18 +192,9 @@
         <div class="video-item">
           <video src="UserObjectControl/Turtle_concat2.mp4" autoplay loop muted playsinline controls></video>
         </div>
-        <!-- <div class="video-item">
-          <video src="UserObjectControl/surfing_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-        </div> -->
-        <!-- <div class="video-item">
-          <video src="UserObjectControl/owl_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-        </div> -->
-        <!-- <div class="video-item">
-          <video src="UserObjectControl/cuttingcucumber_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-        </div> -->
-        <!-- <div class="video-item">
-          <video src="UserObjectControl/carhighway_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-        </div> -->
+        <div class="video-item">
+          <video src="UserObjectControl/splash_knight_concat.mp4" autoplay loop muted playsinline controls></video>
+        </div>
       </div>
     </section>
 
@@ -246,14 +228,6 @@
           <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
         </div>
         <div class="video-item">
-          <video src="UserCameraControl/bridge1_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Warped | Ours</p>
-        </div>
-        <div class="video-item">
-            <video src="UserCameraControl/concertstage_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Warped | Ours</p>
-        </div>
-        <div class="video-item">
             <video src="UserCameraControl/volcano_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
             <p class="video-label">Warped | Ours</p>
         </div>
@@ -261,10 +235,6 @@
           <video src="UserCameraControl/Bridge2_concat_3.mp4" autoplay loop muted playsinline controls></video>
           <p class="video-label">Warped | Ours</p>
         </div>
-        <!-- <div class="video-item">
-            <video src="UserCameraControl/concertcrowd_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Warped | Ours</p>
-        </div> -->
         <div class="video-item">
             <video src="UserCameraControl/riverup_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
             <p class="video-label">Warped | Ours</p>
