@@ -1,6 +1,0 @@
-/*  
-  X-Content-Type-Options: nosniff  
-  Referrer-Policy: no-referrer  
-  Permissions-Policy: interest-cohort=()  
-  X-Robots-Tag: noarchive  
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
