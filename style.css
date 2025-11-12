@@ -590,7 +590,13 @@ section h2 {
 }
 
 .video-col-headercell .spacer{ flex: 1 1 0; }
-.video-col-headercell .label { flex: 0 0 auto; }
+.video-col-headercell .label {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+  }
 
 
 /* Header cell (one per column) */
@@ -621,17 +627,35 @@ section h2 {
    hide the global headers and show a small inline label per video. */
 @media (max-width: 800px){
   .video-grid-2col{ 
-    grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; /* Always 2 columns */
+    grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; 
+    /* grid-template-columns: 1fr !important; */
+      grid-template-columns: 1fr !important;  /* Always collapse to 1 column */
+  }
+  .video-col-headercell {
+    /* display: block;
+    text-align: center; */
+    display: flex;
+    justify-content: space-between;  /* Spread titles across a single row */
+    align-items: center;
+  }
+  .video-col-headercell:nth-child(2) {
+    display: none;
   }
   .video-col-header{ display:none; }
+
+    .video-col-headercell .label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+  }
   .video-item::before{
-    content:attr(data-col);
-    display:block;
-    font-weight:600;
-    font-size:0.9rem;
-    color:#fff;
-    opacity:0.85;
-    margin-bottom:6px;
+    content: attr(data-col);
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+    opacity: 0.85;
+    margin-bottom: 6px;
   }
 }
 
