@@ -627,27 +627,33 @@ section h2 {
    hide the global headers and show a small inline label per video. */
 @media (max-width: 800px){
   .video-grid-2col{ 
-    grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; 
-    /* grid-template-columns: 1fr !important; */
-      grid-template-columns: 1fr !important;  /* Always collapse to 1 column */
+    grid-template-columns: 1fr !important;  /* Always collapse to 1 column */
   }
+  
   .video-col-headercell {
-    /* display: block;
-    text-align: center; */
     display: flex;
     justify-content: space-between;  /* Spread titles across a single row */
     align-items: center;
   }
-  .video-col-headercell:nth-child(2) {
-    display: none;
+  
+  /* Hide extra header columns */
+  .video-col-headercell:nth-child(n+2) {
+    display: none; /* Hide headers like "Ours (Wan2.2)", "Ours (CogVideoX)", etc. */
   }
-  .video-col-header{ display:none; }
 
-    .video-col-headercell .label {
+  /* Adjust the global header row */
+  .video-col-header {
+    display: none; /* Hide any global header if needed */
+  }
+
+  /* Style for header label */
+  .video-col-headercell .label {
     font-weight: 600;
     font-size: 0.9rem;
     color: #fff;
   }
+
+  /* Show inline labels for video items */
   .video-item::before{
     content: attr(data-col);
     display: block;
