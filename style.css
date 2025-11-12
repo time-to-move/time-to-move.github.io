@@ -614,7 +614,7 @@ section h2 {
 }
 
 .video-col-headercell-small .spacer{ flex: 1 1 0; }
-.video-col-headercel-small .label { flex: 0 0 auto; }
+.video-col-headercell-small .label { flex: 0 0 auto; }
 
 .video-col-headerbar .spacer{ flex: 1 1 0; }  /* each 'space' */
 .video-col-headerbar .label{ flex: 0 0 auto; }/* the words */
@@ -662,6 +662,33 @@ section h2 {
     color: #fff;
     opacity: 0.85;
     margin-bottom: 6px;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr !important;  /* Collapse to 1 column on small screens */
+    gap: 1.5rem;   /* Adjust the gap between rows */
+    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+  }
+  .video-col-headercell-small {
+    display: flex;
+    justify-content: space-between;  /* Spread titles across a single row */
+    align-items: center;
+  }
+  .video-col-headercell-small .label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+  }
+  .comparison-grid .video-col-headercell:nth-child(n+2) {
+    display: none;
+  }
+  /* Show the first header only (Warped, Ours, etc.) */
+  .comparison-grid .video-col-headercell:first-of-type {
+    display: block; /* Show only the first header */
+  }
+  .comparison-grid .video-col-headercell-small:not(:first-of-type),
+  .comparison-grid .video-col-headercell:not(:first-of-type){
+    display: none !important;
   }
 }
 
