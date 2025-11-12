@@ -432,11 +432,17 @@ section h2 {
   }
 
   .video-grid-2col,
-  .comparison-grid {
+  /* .comparison-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
+  } */
 
+  .comparison-grid {
+    grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; /* Always keep 2 columns */
+    gap: 1.5rem;
+    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+  }
+   
   section {
     padding: 1.5rem;
   }
@@ -614,7 +620,9 @@ section h2 {
 /* Optional: nicer mobile fallback — when it collapses to 1 column,
    hide the global headers and show a small inline label per video. */
 @media (max-width: 800px){
-  .video-grid-2col{ grid-template-columns:1fr; }
+  .video-grid-2col{ 
+    grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; /* Always 2 columns */
+  }
   .video-col-header{ display:none; }
   .video-item::before{
     content:attr(data-col);
